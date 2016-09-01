@@ -1,4 +1,4 @@
-package sistema_experto.common;
+package fileIO.common;
 
 import java.io.File;
 import java.io.IOException;
