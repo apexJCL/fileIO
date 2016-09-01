@@ -1,6 +1,6 @@
-package sistema_experto.entities;
+package fileIO.entities;
 
-import sistema_experto.common.RandomIO;
+import fileIO.common.RandomIO;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -52,7 +52,7 @@ public class Database {
         r.setRuleNumber(_db.file.readByte());
         for (byte i = 0; i < Rule.MAX_RECORDS; i++)
             r.getRecord()[i] = _db.file.readChar();
-        r.setProduction(_db.file.readByte());
+        r.setProduction(_db.file.readChar());
         r.description = _db.file.readLine();
         r.setEndOffset(_db.file.getFilePointer());
         return r;
@@ -92,7 +92,7 @@ public class Database {
         for (byte i = 0; i < Rule.MAX_RECORDS; i++) {
             _db.file.writeChar(rule.getRecord()[i]);
         }
-        _db.file.writeByte(rule.getProduction());
+        _db.file.writeChar(rule.getProduction());
         _db.file.writeChars(rule.getDescription());
     }
 
